@@ -5,6 +5,10 @@
 # SELECTION OF WORKING INPUT DATA
 
 library(dplyr)
+library(RMySQL)
+
+# create a connection with the DB
+db.npo <- dbConnect(MySQL(), user='alfonso', password = '1317', dbname = 'db_npo', host = '127.0.0.1')
 
 # work.path = "/Users/Laura/Desktop/2013"
 work.path <- "C:/ALFONSO/WORK/GSE/14D003/use/"
@@ -15,58 +19,56 @@ file.list <- list.files(pattern="*.csv")
 
 
 
+# 
+# # careful this loads ALL data into memory -it takes minutes
+# for (i in 1:length(temp)) assign(temp[i], read.csv(temp[i]))
+# 
+# # filter out non 501-c3 organisations 
+# z <- rep(0,length(temp))
+# for (i in 1:length(temp)) z[i] <- c(temp[i], count(filter(read.csv(temp[i]), SUBSECCD == 3)))
 
-# careful this loads ALL data into memory -it takes minutes
-for (i in 1:length(temp)) assign(temp[i], read.csv(temp[i]))
-
-# filter out non 501-c3 organisations 
-z <- rep(0,length(temp))
-for (i in 1:length(temp)) z[i] <- c(temp[i], count(filter(read.csv(temp[i]), SUBSECCD == 3)))
-
-# relation file - number of non 501-c3
-zz <- data.frame(csv_file = character(0), no_c3= integer(0))
-for (i in 1:length(temp)) zz <- rbind(csv_file = temp[1:211], no_c3 = count(filter(read.csv(temp[1:211]), SUBSECCD != 3)))
-
-count <- 0
-for (i in 1:length(temp)) {
-  output <- c(z[i], temp[i])
-  if (z[i] != 0)  {
-    count <- count + 1
-    print(t(output))
-  }
-}
-
-
-for (f in 1:length(file.list)) { 
-
-}
-
-BASIC.cols <- c('EIN', 'NAME', 'ZIP', 'noemplyeesw3cnt', 'ORGCD')
-
-CLASSIFICATION.cols <- c('ntmaj5', ' ntmaj10', 'ntmaj12', 'LEVEL1', 'MAJGRPB')
-
-KEY_PERSONEL.cols <- c('totreprtabled', 'totcomprelatede', 'totestcompf', 'noindiv100kcnt', 'nocontractor100kcnt')
-
-REVENUE.cols <- c('totcntrbgfts', 'prgmservcode2acd', 'totrev2acola', 'prgmservcode2bcd', 'totrev2bcola', 'prgmservcode2ccd', 'totrev2ccola', 'prgmservcode2dcd', 'totrev2dcola', 'prgmservcode2ecd', 'totrev2ecola', 'totrev2fcola', '
-                  totprgmrevnue', 'invstmntinc', 'txexmptbndsproceeds', 'royaltsinc', 'grsrntsreal', 'grsrntsprsnl', 'rntlexpnsreal', 'rntlexpnsprsnl', 'rntlincreal', 'rntlincprsnl', 'netrntlinc', '
-                  grsalesecur', 'grsalesothr', 'cstbasisecur', 'cstbasisothr', 'gnlsecur', 'gnlsothr', 'netgnls', 'grsincfndrsng', 'lessdirfndrsng', 'netincfndrsng', 'grsincgaming', '
-                  lessdirgaming', 'netincgaming', 'grsalesinvent', 'lesscstofgoods', 'netincsales', 'miscrev11acd', 'miscrevtota', 'miscrev11bcd', 'miscrevtot11b', 'miscrev11ccd', '
-                  miscrevtot11c', 'miscrevtot11dmiscrevtot11e', 'totrevenue')
-
-EXPENSES.cols <- c('grntstogovt', 'grnsttoindiv', 'grntstofrgngovt', 'benifitsmembrs', 'compnsatncurrofcr', 'compnsatnandothr', '
-                   othrsalwages', 'pensionplancontrb', 'othremplyeebenef', 'payrolltx', 'feesforsrvcmgmt', 'legalfees', 'accntingfees', 'feesforsrvclobby', 'profndraising', '
-                   feesforsrvcinvstmgmt', 'feesforsrvcothr', 'advrtpromo', 'officexpns', 'infotech', 'royaltsexpns', 'occupancy', 'travel', 'travelofpublicoffcl', 'converconventmtng', '
-                   interestamt', 'pymtoaffiliates', 'deprcatndepletn', 'insurance', 'othrexpnsa', 'othrexpnsb', 'othrexpnsc', 'othrexpnsd', 'othrexpnse', 'othrexpnsf', 'totfuncexpns')
+# # relation file - number of non 501-c3
+# zz <- data.frame(csv_file = character(0), no_c3= integer(0))
+# for (i in 1:length(temp)) zz <- rbind(csv_file = temp[1:211], no_c3 = count(filter(read.csv(temp[1:211]), SUBSECCD != 3)))
+# 
+# count <- 0
+# for (i in 1:length(temp)) {
+#   output <- c(z[i], temp[i])
+#   if (z[i] != 0)  {
+#     count <- count + 1
+#     print(t(output))
+#   }
+# }
 
 
-BALANCE.cols <- c('nonintcashend', 'svngstempinvend', 'pldgegrntrcvblend', 'accntsrcvblend', 'currfrmrcvblend', 'rcvbldisqualend', 'notesloansrcvblend', '
-                  invntriesalesend', 'prepaidexpnsend', 'lndbldgsequipend', 'invstmntsend', 'invstmntsothrend', 'invstmntsprgmend', 'intangibleassetsend', 'othrassetsend', 'totassetsend', '
-                  accntspayableend', 'grntspayableend', 'deferedrevnuend', 'txexmptbndcd', 'txexmptbndsend', 'escrwaccntliabend', 'paybletoffcrsend', 'secrdmrtgsend', 'unsecurednotesend', '
-                  othrliabend', 'totliabend', 'unrstrctnetasstsend', 'temprstrctnetasstsend', 'permrstrctnetasstsend', 'capitalstktrstend', 'paidinsurplusend', 'retainedearnend', '
-                  totnetassetend', 'totnetliabastend')
 
 
-  df <- (read.csv(paste0(work.path, file.list[f])))
+# BASIC.cols <- c('EIN', 'NAME', 'ZIP', 'noemplyeesw3cnt', 'ORGCD')
+# 
+# CLASSIFICATION.cols <- c('ntmaj5', ' ntmaj10', 'ntmaj12', 'LEVEL1', 'MAJGRPB')
+# 
+# KEY_PERSONEL.cols <- c('totreprtabled', 'totcomprelatede', 'totestcompf', 'noindiv100kcnt', 'nocontractor100kcnt')
+# 
+# REVENUE.cols <- c('totcntrbgfts', 'prgmservcode2acd', 'totrev2acola', 'prgmservcode2bcd', 'totrev2bcola', 'prgmservcode2ccd', 'totrev2ccola', 'prgmservcode2dcd', 'totrev2dcola', 'prgmservcode2ecd', 'totrev2ecola', 'totrev2fcola', '
+#                   totprgmrevnue', 'invstmntinc', 'txexmptbndsproceeds', 'royaltsinc', 'grsrntsreal', 'grsrntsprsnl', 'rntlexpnsreal', 'rntlexpnsprsnl', 'rntlincreal', 'rntlincprsnl', 'netrntlinc', '
+#                   grsalesecur', 'grsalesothr', 'cstbasisecur', 'cstbasisothr', 'gnlsecur', 'gnlsothr', 'netgnls', 'grsincfndrsng', 'lessdirfndrsng', 'netincfndrsng', 'grsincgaming', '
+#                   lessdirgaming', 'netincgaming', 'grsalesinvent', 'lesscstofgoods', 'netincsales', 'miscrev11acd', 'miscrevtota', 'miscrev11bcd', 'miscrevtot11b', 'miscrev11ccd', '
+#                   miscrevtot11c', 'miscrevtot11dmiscrevtot11e', 'totrevenue')
+# 
+# EXPENSES.cols <- c('grntstogovt', 'grnsttoindiv', 'grntstofrgngovt', 'benifitsmembrs', 'compnsatncurrofcr', 'compnsatnandothr', '
+#                    othrsalwages', 'pensionplancontrb', 'othremplyeebenef', 'payrolltx', 'feesforsrvcmgmt', 'legalfees', 'accntingfees', 'feesforsrvclobby', 'profndraising', '
+#                    feesforsrvcinvstmgmt', 'feesforsrvcothr', 'advrtpromo', 'officexpns', 'infotech', 'royaltsexpns', 'occupancy', 'travel', 'travelofpublicoffcl', 'converconventmtng', '
+#                    interestamt', 'pymtoaffiliates', 'deprcatndepletn', 'insurance', 'othrexpnsa', 'othrexpnsb', 'othrexpnsc', 'othrexpnsd', 'othrexpnse', 'othrexpnsf', 'totfuncexpns')
+# 
+# 
+# BALANCE.cols <- c('nonintcashend', 'svngstempinvend', 'pldgegrntrcvblend', 'accntsrcvblend', 'currfrmrcvblend', 'rcvbldisqualend', 'notesloansrcvblend', '
+#                   invntriesalesend', 'prepaidexpnsend', 'lndbldgsequipend', 'invstmntsend', 'invstmntsothrend', 'invstmntsprgmend', 'intangibleassetsend', 'othrassetsend', 'totassetsend', '
+#                   accntspayableend', 'grntspayableend', 'deferedrevnuend', 'txexmptbndcd', 'txexmptbndsend', 'escrwaccntliabend', 'paybletoffcrsend', 'secrdmrtgsend', 'unsecurednotesend', '
+#                   othrliabend', 'totliabend', 'unrstrctnetasstsend', 'temprstrctnetasstsend', 'permrstrctnetasstsend', 'capitalstktrstend', 'paidinsurplusend', 'retainedearnend', '
+#                   totnetassetend', 'totnetliabastend')
+
+
+
     
   # BASIC <- select(df, as.numeric_version(BASIC.cols))
   # BASIC["ZIP"] <- substr(BASIC[1:nrow(BASIC), "ZIP"], 1, 5) # eliminate sub-zip codes
@@ -83,34 +85,40 @@ BALANCE.cols <- c('nonintcashend', 'svngstempinvend', 'pldgegrntrcvblend', 'accn
   # CLASSIFICATION <- select(df, ntmaj5, ntmaj10,ntmaj12,LEVEL1,MAJGRPB)
   # 
   # KEY_PERSONEL <- select(df,totreprtabled,totcomprelatede,totestcompf,noindiv100kcnt,nocontractor100kcnt)
+
+for (f in 1:length(file.list)) { 
   
-  BASIC <- select(df, 'EIN', 'NAME', 'ZIP', 'noemplyeesw3cnt', 'ORGCD')
+}
+  # read one csv file
+  df <- (read.csv(paste0(work.path, file.list[f])))
+  
+  # select columns in bathces
+  BASIC <- select(df, EIN, NAME, ZIP, noemplyeesw3cnt, ORGCD)
   BASIC["ZIP"] <- substr(BASIC[1:nrow(BASIC), "ZIP"], 1, 5) # eliminate sub-zip codes
+  REVENUE <- select(df, totcntrbgfts, prgmservcode2acd, totrev2acola, prgmservcode2bcd, totrev2bcola, prgmservcode2ccd, totrev2ccola, prgmservcode2dcd, totrev2dcola, prgmservcode2ecd, totrev2ecola, totrev2fcola, totprgmrevnue, invstmntinc, txexmptbndsproceeds, royaltsinc, grsrntsreal, grsrntsprsnl, rntlexpnsreal, rntlexpnsprsnl, rntlincreal, rntlincprsnl, netrntlinc, grsalesecur, grsalesothr, cstbasisecur, cstbasisothr, gnlsecur, gnlsothr, netgnls, grsincfndrsng, lessdirfndrsng, netincfndrsng, grsincgaming, lessdirgaming, netincgaming, grsalesinvent, lesscstofgoods, netincsales, miscrev11acd, miscrevtota, miscrev11bcd, miscrevtot11b, miscrev11ccd, miscrevtot11c, miscrevtot11d, miscrevtot11e, totrevenue)
+  EXPENSES <- select(df, grntstogovt, grnsttoindiv, grntstofrgngovt, benifitsmembrs, compnsatncurrofcr, compnsatnandothr, othrsalwages, pensionplancontrb, othremplyeebenef, payrolltx, feesforsrvcmgmt, legalfees, accntingfees, feesforsrvclobby, profndraising, feesforsrvcinvstmgmt, feesforsrvcothr, advrtpromo, officexpns, infotech, royaltsexpns, occupancy, travel, travelofpublicoffcl, converconventmtng, interestamt, pymtoaffiliates, deprcatndepletn, insurance, othrexpnsa, othrexpnsb, othrexpnsc, othrexpnsd, othrexpnse, othrexpnsf, totfuncexpns)
+  BALANCE <- select(df, nonintcashend, svngstempinvend, pldgegrntrcvblend, accntsrcvblend, currfrmrcvblend, rcvbldisqualend, notesloansrcvblend, invntriesalesend, prepaidexpnsend, lndbldgsequipend, invstmntsend, invstmntsothrend, invstmntsprgmend, intangibleassetsend, othrassetsend, totassetsend, accntspayableend, grntspayableend, deferedrevnuend, txexmptbndcd, txexmptbndsend, escrwaccntliabend, paybletoffcrsend, secrdmrtgsend, unsecurednotesend, othrliabend, totliabend, unrstrctnetasstsend, temprstrctnetasstsend, permrstrctnetasstsend, capitalstktrstend, paidinsurplusend, retainedearnend, totnetassetend, totnetliabastend)
+
+  # prepare a df whole combining all batches
+  dfw <- data.frame()
+  dfw <- cbind.data.frame(BASIC, REVENUE, EXPENSES, BALANCE)
   
-  
-  REVENUE <- select(df, totcntrbgfts, prgmservcode2acd, totrev2acola, prgmservcode2bcd, totrev2bcola, prgmservcode2ccd, totrev2ccola, prgmservcode2dcd, totrev2dcola, prgmservcode2ecd, totrev2ecola, totrev2fcola, 
-                    totprgmrevnue, invstmntinc, txexmptbndsproceeds, royaltsinc, grsrntsreal, grsrntsprsnl, rntlexpnsreal, rntlexpnsprsnl, rntlincreal, rntlincprsnl, netrntlinc, 
-                    grsalesecur, grsalesothr, cstbasisecur, cstbasisothr, gnlsecur, gnlsothr, netgnls, grsincfndrsng, lessdirfndrsng, netincfndrsng, grsincgaming, 
-                    lessdirgaming, netincgaming, grsalesinvent, lesscstofgoods, netincsales, miscrev11acd, miscrevtota, miscrev11bcd, miscrevtot11b, miscrev11ccd, 
-                    miscrevtot11c, miscrevtot11dmiscrevtot11e, totrevenue)
-  
-  EXPENSES <- select(df, grntstogovt, grnsttoindiv, grntstofrgngovt, benifitsmembrs, compnsatncurrofcr, compnsatnandothr, 
-                     othrsalwages, pensionplancontrb, othremplyeebenef, payrolltx, feesforsrvcmgmt, legalfees, accntingfees, feesforsrvclobby, profndraising, 
-                     feesforsrvcinvstmgmt, feesforsrvcothr, advrtpromo, officexpns, infotech, royaltsexpns, occupancy, travel, travelofpublicoffcl, converconventmtng, 
-                     interestamt, pymtoaffiliates, deprcatndepletn, insurance, othrexpnsa, othrexpnsb, othrexpnsc, othrexpnsd, othrexpnse, othrexpnsf, totfuncexpns)
-  
-  
-  BALANCE <- select(df, nonintcashend, svngstempinvend, pldgegrntrcvblend, accntsrcvblend, currfrmrcvblend, rcvbldisqualend, notesloansrcvblend, 
-                    invntriesalesend, prepaidexpnsend, lndbldgsequipend, invstmntsend, invstmntsothrend, invstmntsprgmend, intangibleassetsend, othrassetsend, totassetsend, 
-                    accntspayableend, grntspayableend, deferedrevnuend, txexmptbndcd, txexmptbndsend, escrwaccntliabend, paybletoffcrsend, secrdmrtgsend, unsecurednotesend, 
-                    othrliabend, totliabend, unrstrctnetasstsend, temprstrctnetasstsend, permrstrctnetasstsend, capitalstktrstend, paidinsurplusend, retainedearnend, 
-                    totnetassetend, totnetliabastend)
+  # create a temp table in the DB with the csv selected data
+  dbSendQuery(db.npo, 'DROP TABLE IF EXISTS temp')
+  dbWriteTable(db.npo, name = 'temp', value =  dfw)
+  # remove the first column
+  dbSendQuery(db.npo, 'ALTER TABLE temp DROP COLUMN row_names')
+  # row-union on the main table
+  dbSendQuery(db.npo, 'SELECT * FROM main UNION SELECT * FROM temp')
+  # discard the temp table
+  dbSendQuery(db.npo, 'DROP TABLE temp')
 
 
-colnames(irsExtractFromNccs_2013_990_PF_AK.csv)
-ncol(irsExtractFromNccs_2013_990_OT_AK.csv)
-print(count)
-print(length(temp))
-files_2013 <- length(temp)-count
-print(files_2013)
-print(temp)
+
+# colnames(irsExtractFromNccs_2013_990_PF_AK.csv)
+# ncol(irsExtractFromNccs_2013_990_OT_AK.csv)
+# print(count)
+# print(length(temp))
+# files_2013 <- length(temp)-count
+# print(files_2013)
+# print(temp)

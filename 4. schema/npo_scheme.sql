@@ -146,7 +146,7 @@ primary key (EIN)
 );
 
 create table cities (
-ZIP varchar(10),
+ZIP integer(5),
 CITY varchar(22),
 STATE varchar(2),
 primary key (ZIP)
