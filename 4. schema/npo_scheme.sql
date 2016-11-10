@@ -2,168 +2,46 @@
 # COMPUTING PROJECT - 1st TERM
 # SORT DATA & KICK ASSES - K.W. L.R. A.B.
 
+-- schema creation
+
 drop schema if exists db_npo;
 create schema db_npo;
 use db_npo;
 
-create table form990 (
+
+-- table for all common basic information
+
+create table basic_data (
 EIN varchar(9),
 NAME varchar(70),
-ZIP int(5),
-noemplyeesw3cnt varchar(10),
+SEC_NAME varchar(100),
+ADDRESS varchar(35),
+ZIP varchar(10),
+NteeCat12 varchar(10),
+SUBSECCD varchar(10),
 ORGCD varchar(6),
-totcntrbgfts varchar(10),
-prgmservcode2acd varchar(10),
-totrev2acola varchar(10),
-prgmservcode2bcd varchar(10),
-totrev2bcola varchar(10),
-prgmservcode2ccd varchar(10),
-totrev2ccola varchar(10),
-prgmservcode2dcd varchar(10),
-totrev2dcola varchar(10),
-prgmservcode2ecd varchar(10),
-totrev2ecola varchar(10),
-totrev2fcola varchar(10),
-totprgmrevnue varchar(10),
-invstmntinc varchar(10),
-txexmptbndsproceeds varchar(10),
-royaltsinc varchar(10),
-grsrntsreal varchar(10),
-grsrntsprsnl varchar(10),
-rntlexpnsreal varchar(10),
-rntlexpnsprsnl varchar(10),
-rntlincreal varchar(10),
-rntlincprsnl varchar(10),
-netrntlinc  varchar(10),
-grsalesecur varchar(10),
-grsalesothr varchar(10),
-cstbasisecur varchar(10),
-cstbasisothr varchar(10),
-gnlsecur varchar(10),
-gnlsothr varchar(10),
-netgnls varchar(10),
-grsincfndrsng varchar(10),
-lessdirfndrsng varchar(10),
-netincfndrsng varchar(10),
-grsincgaming varchar(10),
-lessdirgaming varchar(10),
-netincgaming varchar(10),
-grsalesinvent varchar(10),
-lesscstofgoods varchar(10),
-netincsales varchar(10),
-miscrev11acd varchar(10),
-miscrevtota varchar(10),
-miscrev11bcd varchar(10),
-miscrevtot11b varchar(10),
-miscrev11ccd varchar(10),
-miscrevtot11c varchar(10),
-miscrevtot11d varchar(10),
-miscrevtot11e varchar(10),
-totrevenue varchar(10),
-grntstogovt varchar(10),
-grnsttoindiv varchar(10),
-grntstofrgngovt varchar(10),
-benifitsmembrs varchar(10),
-compnsatncurrofcr varchar(10),
-compnsatnandothr varchar(10),
-othrsalwages varchar(10),
-pensionplancontrb varchar(10),
-othremplyeebenef varchar(10),
-payrolltx varchar(10),
-feesforsrvcmgmt varchar(10),
-legalfees varchar(10),
-accntingfees varchar(10),
-feesforsrvclobby varchar(10),
-profndraising varchar(10),
-feesforsrvcinvstmgmt varchar(10),
-feesforsrvcothr varchar(10),
-advrtpromo varchar(10),
-officexpns varchar(10),
-infotech varchar(10),
-royaltsexpns varchar(10),
-occupancy varchar(10),
-travel varchar(10),
-travelofpublicoffcl varchar(10),
-converconventmtng varchar(10),
-interestamt varchar(10),
-pymtoaffiliates varchar(10),
-deprcatndepletn varchar(10),
-insurance varchar(10),
-othrexpnsa varchar(10),
-othrexpnsb varchar(10),
-othrexpnsc varchar(10),
-othrexpnsd varchar(10),
-othrexpnse varchar(10),
-othrexpnsf varchar(10),
-totfuncexpns varchar(10),
-nonintcashend varchar(10),
-svngstempinvend varchar(10),
-pldgegrntrcvblend varchar(10),
-accntsrcvblend varchar(10),
-currfrmrcvblend varchar(10),
-rcvbldisqualend varchar(10),
-notesloansrcvblend varchar(10),
-invntriesalesend varchar(10),
-prepaidexpnsend varchar(10),
-lndbldgsequipend varchar(10),
-invstmntsend varchar(10),
-invstmntsothrend varchar(10),
-invstmntsprgmend varchar(10),
-intangibleassetsend varchar(10),
-othrassetsend varchar(10),
-totassetsend varchar(10),
-accntspayableend varchar(10),
-grntspayableend varchar(10),
-deferedrevnuend varchar(10),
-txexmptbndcd varchar(10),
-txexmptbndsend varchar(10),
-escrwaccntliabend varchar(10),
-paybletoffcrsend varchar(10),
-secrdmrtgsend varchar(10),
-unsecurednotesend varchar(10),
-othrliabend varchar(10),
-totliabend varchar(10),
-unrstrctnetasstsend varchar(10),
-temprstrctnetasstsend varchar(10),
-permrstrctnetasstsend varchar(10),
-capitalstktrstend varchar(10),
-paidinsurplusend varchar(10),
-retainedearnend varchar(10),
-totnetassetend varchar(10),
-totnetliabastend int(1)
+AFCD varchar(2),
+CLASSCD varchar(4),
+subcd varchar(2)
 );
 
-create table cities (
+
+-- table for the zip-city-state dictionary
+
+create table zip_dict (
 ZIP int(5),
 CITY varchar(22),
 STATE varchar(2)
 );
 
--- create index idx_track_ZIP on cities(ZIP);
--- create index idx_track_CITY on cities(CITY);
--- create index idx_track_STATE on cities(STATE);
 
--- create index idx_track_ZIP_form990 on form990(ZIP);
+-- table for specific informmation from PF forms
 
--- alter table form990 add constraint
--- foreign key (ZIP) references cities(ZIP) on delete no action on update no action;
-
-create table formPF (
+create table form_PF (
 EIN varchar(9),
-NAME varchar(70),
-SEC_NAME varchar(100),
-ADDRESS varchar(35),
-CITY varchar(22),
-STATE varchar(2),
-ZIP varchar(10),
-NteeCat12 varchar(10),
-SUBSECCD varchar(10),
 FNDNCD varchar(10),
 RULEDATE varchar(6),
-ORGCD varchar(6),
 ACCPER varchar(2),
-AFCD varchar(2),
-CLASSCD varchar(4),
 DEDUCTCD varchar(4),
 EOSTATUS varchar(4),
 FRCD varchar(4),
@@ -172,7 +50,6 @@ FisYr varchar(4),
 eostat varchar(2),
 tax_yr varchar(4),
 operatingcd varchar(4),
-subcd varchar(2),
 fairmrktvalamt int(2),
 grscontrgifts int(2),
 schedbind varchar(2),
@@ -346,3 +223,355 @@ loansguarcd varchar(2),
 perfservicescd varchar(2),
 sharngasstscd varchar(2)
 );
+
+
+-- table for specific informmation from EZ forms
+
+create table form_EZ (
+EIN varchar(9),
+FNDNCD varchar(10),
+DEDUCTCD varchar(4),
+EOSTATUS varchar(4),
+tax_pd varchar(6),
+FisYr varchar(4),
+totcntrbs int(2),
+prgmservrev int(2),
+duesassesmnts int(2),
+othrinvstinc int(2),
+grsamtsalesastothr int(2),
+basisalesexpnsothr int(2),
+gnsaleofastothr int(2),
+grsincgaming int(2),
+grsrevnuefndrsng int(2),
+direxpns int(2),
+netincfndrsng int(2),
+grsalesminusret int(2),
+costgoodsold int(2),
+grsprft int(2),
+othrevnue int(2),
+totrevnue int(2),
+totexpns int(2),
+totexcessyr int(2),
+othrchgsnetassetfnd int(2),
+networthend int(2),
+totassetsend int(2),
+totliabend int(2),
+totnetassetsend int(2),
+actvtynotprevrptcd varchar(2),
+chngsinorgcd varchar(2),
+unrelbusincd varchar(2),
+filedf990tcd varchar(2),
+contractioncd varchar(2),
+politicalexpend int(2),
+filedf1120polcd varchar(2),
+loanstoofficerscd varchar(2),
+loanstoofficers int(2),
+initiationfee int(2),
+grspublicrcpts int(2),
+s4958excessbenefcd varchar(2),
+prohibtdtxshltrcd varchar(2),
+nonpfrea int(2),
+totnooforgscnt int(2),
+totsupport int(2),
+gftgrntsrcvd170 int(2),
+txrevnuelevied170 int(2),
+srvcsval170 int(2),
+pubsuppsubtot170 int(2),
+exceeds2pct170 int(2),
+pubsupplesspct170 int(2),
+samepubsuppsubtot170 int(2),
+grsinc170 int(2),
+netincunreltd170 int(2),
+othrinc170 int(2),
+totsupp170 int(2),
+grsrcptsrelated170 int(2),
+totgftgrntrcvd509 int(2),
+grsrcptsadmissn509 int(2),
+grsrcptsactivities509 int(2),
+txrevnuelevied509 int(2),
+srvcsval509 int(2),
+pubsuppsubtot509 int(2),
+rcvdfrmdisqualsub509 int(2),
+exceeds1pct509 int(2),
+subtotpub509 int(2),
+pubsupplesub509 int(2),
+samepubsuppsubtot509 int(2),
+grsinc509 int(2),
+unreltxincls511tx509 int(2),
+subtotsuppinc509 int(2),
+netincunrelatd509 int(2),
+othrinc509 int(2),
+totsupp509 int(2)
+);
+
+
+-- table for specific informmation from 990 forms
+
+create table form_990 (
+EIN varchar(9),
+f1096cnt int(1),
+fw2gcnt int(1),
+wthldngrulescd varchar(1),
+noemplyeesw3cnt int(1),
+filerqrdrtnscd varchar(1),
+unrelbusinccd varchar(1),
+filedf990tcd varchar(1),
+frgnacctcd varchar(1),
+prohibtdtxshltrcd varchar(1),
+prtynotifyorgcd varchar(1),
+filedf8886tcd varchar(1),
+solicitcntrbcd varchar(1),
+exprstmntcd varchar(1),
+providegoodscd varchar(1),
+notfydnrvalcd varchar(1),
+filedf8282cd varchar(1),
+f8282cnt int(1),
+fndsrcvdcd varchar(1),
+premiumspaidcd varchar(1),
+filedf8899cd varchar(1),
+filedf1098ccd varchar(1),
+excbushldngscd varchar(1),
+s4966distribcd varchar(1),
+distribtodonorcd varchar(1),
+initiationfees int(1),
+grsrcptspublicuse int(1),
+grsincmembers int(1),
+grsincother int(1),
+filedlieuf1041cd varchar(1),
+txexmptint int(1),
+qualhlthplncd varchar(1),
+qualhlthreqmntn int(1),
+qualhlthonhnd int(1),
+rcvdpdtngcd varchar(1),
+filedf720cd varchar(1),
+totreprtabled int(1),
+totcomprelatede int(1),
+totestcompf int(1),
+noindiv100kcnt int(1),
+nocontractor100kcnt int(1),
+totcntrbgfts int(1),
+prgmservcode2acd int(1),
+totrev2acola int(1),
+prgmservcode2bcd int(1),
+totrev2bcola int(1),
+prgmservcode2ccd int(1),
+totrev2ccola int(1),
+prgmservcode2dcd int(1),
+totrev2dcola int(1),
+prgmservcode2ecd int(1),
+totrev2ecola int(1),
+totrev2fcola int(1),
+totprgmrevnue int(1),
+invstmntinc int(1),
+txexmptbndsproceeds int(1),
+royaltsinc int(1),
+grsrntsreal int(1),
+grsrntsprsnl int(1),
+rntlexpnsreal int(1),
+rntlexpnsprsnl int(1),
+rntlincreal int(1),
+rntlincprsnl int(1),
+netrntlinc int(1),
+grsalesecur int(1),
+grsalesothr int(1),
+cstbasisecur int(1),
+cstbasisothr int(1),
+gnlsecur int(1),
+gnlsothr int(1),
+netgnls int(1),
+grsincfndrsng int(1),
+lessdirfndrsng int(1),
+netincfndrsng int(1),
+grsincgaming int(1),
+lessdirgaming int(1),
+netincgaming int(1),
+grsalesinvent int(1),
+lesscstofgoods int(1),
+netincsales int(1),
+miscrev11acd int(1),
+miscrevtota int(1),
+miscrev11bcd int(1),
+miscrevtot11b int(1),
+miscrev11ccd int(1),
+miscrevtot11c int(1),
+miscrevtot11d int(1),
+miscrevtot11e int(1),
+totrevenue int(1),
+grntstogovt int(1),
+grnsttoindiv int(1),
+grntstofrgngovt int(1),
+benifitsmembrs int(1),
+compnsatncurrofcr int(1),
+compnsatnandothr int(1),
+othrsalwages int(1),
+pensionplancontrb int(1),
+othremplyeebenef int(1),
+payrolltx int(1),
+feesforsrvcmgmt int(1),
+legalfees int(1),
+accntingfees int(1),
+feesforsrvclobby int(1),
+profndraising int(1),
+feesforsrvcinvstmgmt int(1),
+feesforsrvcothr int(1),
+advrtpromo int(1),
+officexpns int(1),
+infotech int(1),
+royaltsexpns int(1),
+occupancy int(1),
+travel int(1),
+travelofpublicoffcl int(1),
+converconventmtng int(1),
+interestamt int(1),
+pymtoaffiliates int(1),
+deprcatndepletn int(1),
+insurance int(1),
+othrexpnsa int(1),
+othrexpnsb int(1),
+othrexpnsc int(1),
+othrexpnsd int(1),
+othrexpnse int(1),
+othrexpnsf int(1),
+totfuncexpns int(1),
+nonintcashend int(1),
+svngstempinvend int(1),
+pldgegrntrcvblend int(1),
+accntsrcvblend int(1),
+currfrmrcvblend int(1),
+rcvbldisqualend int(1),
+notesloansrcvblend int(1),
+invntriesalesend int(1),
+prepaidexpnsend int(1),
+lndbldgsequipend int(1),
+invstmntsend int(1),
+invstmntsothrend int(1),
+invstmntsprgmend int(1),
+intangibleassetsend int(1),
+othrassetsend int(1),
+totassetsend int(1),
+accntspayableend int(1),
+grntspayableend int(1),
+deferedrevnuend int(1),
+txexmptbndsend int(1),
+escrwaccntliabend int(1),
+paybletoffcrsend int(1),
+secrdmrtgsend int(1),
+unsecurednotesend int(1),
+othrliabend int(1),
+totliabend int(1),
+unrstrctnetasstsend int(1),
+temprstrctnetasstsend int(1),
+permrstrctnetasstsend int(1),
+capitalstktrstend int(1),
+paidinsurplusend int(1),
+retainedearnboy int(1),
+retainedearnend int(1),
+totnetassetboy int(1),
+nonpfrea int(14),
+totnooforgscnt int(14),
+totsupport int(14),
+gftgrntsrcvd170 int(14),
+txrevnuelevied170 int(14),
+srvcsval170 int(14),
+pubsuppsubtot170 int(14),
+exceeds2pct170 int(14),
+pubsupplesspct170 int(14),
+samepubsuppsubtot170 int(14),
+grsinc170 int(14),
+netincunreltd170 int(14),
+othrinc170 int(14),
+totsupp170 int(14),
+grsrcptsrelated170 int(14),
+totgftgrntrcvd509 int(14),
+grsrcptsadmissn509 int(14),
+grsrcptsactivities509 int(14),
+txrevnuelevied509 int(14),
+srvcsval509 int(14),
+pubsuppsubtot509 int(14),
+rcvdfrmdisqualsub509 int(14),
+exceeds1pct509 int(14),
+subtotpub509 int(14),
+pubsupplesub509 int(14),
+samepubsuppsubtot509 int(14),
+grsinc509 int(14),
+unreltxincls511tx509 int(14),
+subtotsuppinc509 int(14),
+netincunrelatd509 int(14),
+othrinc509 int(14),
+totsupp509 int(14)
+);
+
+
+-- load all data!!!
+
+LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\basic_data.csv'
+INTO TABLE basic_data
+FIELDS TERMINATED BY ' ' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\form_990.csv'
+INTO TABLE form_990
+FIELDS TERMINATED BY ' ' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\form_PF.csv'
+INTO TABLE form_pf
+FIELDS TERMINATED BY ' ' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\form_EZ.csv'
+INTO TABLE form_ez
+FIELDS TERMINATED BY ' ' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\ZIP_dict.csv'
+INTO TABLE zip_dict
+FIELDS TERMINATED BY ' ' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+-- create indexes
+
+create index idx_track_ZIP on zip_dict(ZIP);
+create index idx_track_CITY on zip_dict(CITY);
+create index idx_track_STATE on zip_dict(STATE);
+create index idx_track_ZIP_basic_data on basic_data(ZIP);
+create index idx_track_EIN on form_990(EIN);
+create index idx_track_EIN on form_pf(EIN);
+create index idx_track_EIN on form_ez(EIN);
+
+
+-- create primary keys
+
+alter table zip_dict
+add primary key (ZIP);
+alter table form_990
+add primary key (EIN);
+alter table form_990
+add primary key (EIN);
+alter table form_990
+add primary key (EIN);
+alter table basic_data
+add primary key (EIN);
+
+
+-- create foreign keys
+
+alter table basic_data add constraint
+foreign key (ZIP) references zip_dict(ZIP) on delete no action on update no action;
+alter table basic_data add constraint
+foreign key (EIN) references form_990(EIN) on delete no action on update no action;
+alter table basic_data add constraint
+foreign key (EIN) references form_pf(EIN) on delete no action on update no action;
+alter table basic_data add constraint
+foreign key (EIN) references form_ez(EIN) on delete no action on update no action;
