@@ -114,7 +114,7 @@ for (d in c("pf/", "990/", "ez/")) {
 
 df.total["ZIP"] <- substr(df.total[1:nrow(df.total), "ZIP"], 1, 5)  # eliminate sub-zip codes
 
-# buid zip-city-state dictionary and write onto a csv file
+# buid zip-city-state dimension data and write onto a csv file
 zip.dict <- select(df.total, ZIP, CITY, STATE)
 zip.dict <- distinct(zip.dict)
 

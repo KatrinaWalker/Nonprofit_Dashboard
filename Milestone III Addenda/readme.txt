@@ -28,7 +28,7 @@ Downloading all csv files from NCCS web server to study them.
 2. select_data_all_forms.R
 Select relevant columns from each form type (990, ez, pf) and divide the whole data in four dataframes, one with common basic information from all organisations and three 
 more with especific data fron each different form type.
-Also create a zip-city-state dictionary. 
+Also create a zip-city-state dimension table.
 
 3. NPO_scheme.sql
 Create the schema on the database.

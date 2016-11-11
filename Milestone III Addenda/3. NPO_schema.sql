@@ -493,7 +493,7 @@ totsupp509 int(14)
 );
 
 
--- table for the zip-city-state dictionary
+-- zip-city-state dimension table
 
 create table zip_dict (
 ZIP int(5),
