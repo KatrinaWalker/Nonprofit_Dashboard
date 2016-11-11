@@ -1,6 +1,6 @@
 # BGSE DATA SCIENCE MASTER PROGRAM 2016-17
 # COMPUTING PROJECT - 1st TERM
-# SORT DATA & KICK ASSES - K.W. L.R. A.B.
+# DATA WRANGLERS - K.W. L.R. A.B.
 
 -- schema creation
 
@@ -23,15 +23,6 @@ ORGCD varchar(6),
 AFCD varchar(2),
 CLASSCD varchar(4),
 subcd varchar(2)
-);
-
-
--- table for the zip-city-state dictionary
-
-create table zip_dict (
-ZIP int(5),
-CITY varchar(22),
-STATE varchar(2)
 );
 
 
@@ -502,6 +493,15 @@ totsupp509 int(14)
 );
 
 
+-- table for the zip-city-state dictionary
+
+create table zip_dict (
+ZIP int(5),
+CITY varchar(22),
+STATE varchar(2)
+);
+
+
 -- load all data!!!
 
 LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\basic_data.csv'
@@ -511,28 +511,28 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\form_990.csv'
+LOAD DATA LOCAL INFILE '~/NPO_USA/form_990.csv'
 INTO TABLE form_990
 FIELDS TERMINATED BY ' ' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\form_PF.csv'
+LOAD DATA LOCAL INFILE '~/NPO_USA/form_PF.csv'
 INTO TABLE form_pf
 FIELDS TERMINATED BY ' ' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\form_EZ.csv'
+LOAD DATA LOCAL INFILE '~/NPO_USA/form_EZ.csv'
 INTO TABLE form_ez
 FIELDS TERMINATED BY ' ' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'C:\\ALFONSO\\WORK\\GSE\\14D003\\ZIP_dict.csv'
+LOAD DATA LOCAL INFILE '~/NPO_USA/ZIP_dict.csv'
 INTO TABLE zip_dict
 FIELDS TERMINATED BY ' ' 
 ENCLOSED BY '"'
@@ -575,3 +575,5 @@ alter table basic_data add constraint
 foreign key (EIN) references form_pf(EIN) on delete no action on update no action;
 alter table basic_data add constraint
 foreign key (EIN) references form_ez(EIN) on delete no action on update no action;
+
+# EOC
