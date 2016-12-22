@@ -9,6 +9,7 @@ library(dplyr)
 
 work.path <- "C:/ALFONSO/WORK/GSE/14D003/"
 
+
 ########################
 # 990 forms 
 
@@ -32,7 +33,7 @@ for (f in 1:length(file.list)) {
 
 # write the result onto a csv file
 setwd(paste0(work.path, "dump_files/"))
-write.table(df.total, file = "form_990.csv", row.names = F, col.names = T)
+write.table(df.total, file = "990_PC.csv", row.names = F, col.names = T)
 
 
 ########################
@@ -58,7 +59,7 @@ for (f in 1:length(file.list)) {
 
 # write the result onto a csv file
 setwd(paste0(work.path, "dump_files/"))
-write.table(df.total, file = "form_EZ.csv", row.names = F, col.names = T)
+write.table(df.total, file = "990_EZ.csv", row.names = F, col.names = T)
 
 
 ########################
@@ -84,7 +85,7 @@ for (f in 1:length(file.list)) {
 
 # write the result onto a csv file
 setwd(paste0(work.path, "dump_files/"))
-write.table(df.total, file = "form_PF.csv", row.names = F, col.names = T)
+write.table(df.total, file = "990_PF.csv", row.names = F, col.names = T)
 
 
 ########################
@@ -92,7 +93,10 @@ write.table(df.total, file = "form_PF.csv", row.names = F, col.names = T)
 
 df.total <- data.frame()
 
-for (d in c("pf/", "990/", "ez/")) {
+# by now we're leaving aside PF
+# for (d in c("pf/", "990/", "ez/")) {
+  
+for (d in c("990/", "ez/")) {
   setwd(paste0(work.path, "dataset/", d))
   file.list <- list.files(pattern="*.csv")
   
@@ -114,15 +118,15 @@ for (d in c("pf/", "990/", "ez/")) {
 
 df.total["ZIP"] <- substr(df.total[1:nrow(df.total), "ZIP"], 1, 5)  # eliminate sub-zip codes
 
-# buid zip-city-state dictionary and write onto a csv file
-zip.dict <- select(df.total, ZIP, CITY, STATE)
-zip.dict <- distinct(zip.dict)
+# # buid zip-city-state dictionary and write onto a csv file
+# zip.dict <- select(df.total, ZIP, CITY, STATE)
+# zip.dict <- distinct(zip.dict)
+# 
+# setwd(paste0(work.path, "dump_files/"))
+# write.table(zip.dict, file = "zip_dict.csv", row.names = F, col.names = T)
 
-setwd(paste0(work.path, "dump_files/"))
-write.table(zip.dict, file = "zip_dict.csv", row.names = F, col.names = T)
-
-# remove redundant info (city+state) from de basic data
-df.total <- select(df.total, EIN, NAME, SEC_NAME, ADDRESS, ZIP, NteeCat12, SUBSECCD, ORGCD, AFCD, CLASSCD, subcd)
+# # remove redundant info (city+state) from de basic data
+# df.total <- select(df.total, EIN, NAME, SEC_NAME, ADDRESS, ZIP, NteeCat12, SUBSECCD, ORGCD, AFCD, CLASSCD, subcd)
 
 # write the result onto a csv file
 setwd(paste0(work.path, "dump_files/"))
