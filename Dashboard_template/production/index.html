@@ -53,21 +53,12 @@
       <div class="main_container" style="min-height: 4000px;">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <!-- <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>US Nonprofit Sector| 501c(3)</span></a>
-            </div> -->
-
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-               <!--  <img src="images/img.jpg" alt="..." class="img-circle profile_img"> -->
               </div>
-             <!--  <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div> -->
             </div>
             <!-- /menu profile quick info -->
 
@@ -79,11 +70,6 @@
          <!--        <h3>General</h3> -->
                 <ul class="nav side-menu" padding-right="0px">
                   <li style= "font-size: 16px"><a href="index.html"><i class="fa fa-home"></i> Sector Overview <span></span></a>
-                    <!-- <ul class="nav child_menu"> -->
-                   <!--    <li><a ></a></li> -->
-                  <!--     <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li> -->
-                   <!--  </ul> -->
                   </li>
 
               </div>
@@ -110,6 +96,7 @@
           </div>
         </div>
         <!-- /top navigation -->
+
         <!-- page content -->
         <div class="right_col" role="main">
          <h3>2013 Data Overview (not including private and public foundations)</h3>
@@ -126,12 +113,10 @@
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Expenses</span>
               <div class="count">1.52 billion</div>
-             <!--  <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last year</span> -->
             </div>
              <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Assets</span>
               <div class="count">2.95 billion</div>
-             <!--  <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last year</span> -->
             </div>
              <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Giving</span>
@@ -194,9 +179,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
                     <div id="echart_pie" style="height:350px;"></div>
-
                   </div>
                 </div>
               </div>
@@ -204,7 +187,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Total   Revenue of NPOs by Type</h2>
+                    <h2>Total Revenue of NPOs by Type</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -2521,7 +2504,7 @@
           },
           calculable: true,
           series: [{
-            name: '访问来源',
+            name: '',
             type: 'pie',
             radius: '55%',
             center: ['50%', '48%'],
@@ -2559,20 +2542,20 @@
       [[335, "Direct Access"], [310, "e-mail marketing"]]
 
       var randomData = [{
-              value: 335,
-              name: 'Direct Access'
+              value: 113367,
+              name: 'Human Services'
             }, {
-              value: 310,
-              name: 'E-mail Marketing'
+              value: 55059,
+              name: 'Education'
             }, {
-              value: 234,
-              name: 'Union Ad'
+              value: 36763,
+              name: 'Higher Education'
             }, {
-              value: 135,
-              name: 'Video Ads'
+              value: 38140,
+              name: 'Societal Benefit'
             }, {
-              value: 1548,
-              name: 'Search Engine'
+              value: 91183,
+              name: 'Other'
             }]
 
       makeMyPieChart('echart_pie', randomData)      
