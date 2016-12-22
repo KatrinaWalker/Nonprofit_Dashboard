@@ -1,11 +1,11 @@
-# BGSE Dashboard Project: Analytics on the US Nonprofit sector
+# BGSE Dashboard Project: Analytics on the US Nonprofit Sector in 2013
 
 ### Overview
 
-The objectives of our project are:
+The objectives of our project are to:
 
-- Give insight on the US Nonprofit sector in 2013 with relevant data and graphs
-- Provide a revenue estimation for small, medium and large non-profits using the web
+- Give insight into the ways in which the US nonprofit sector functions using descriptive and analytic views 
+- Provide a revenue estimatior for small, medium and large non-profits using the dashboard based on a statistical model
 
 The ultimate goal is to provide information and estimate of total revenue that can be used by a user intersted in the sector or someone who is in charge of a NPO and is willing to hopefully increase its revenues.
 
@@ -29,3 +29,6 @@ The `R` analysis relies on the following packages.
 - `dplyr`
 - `RMySQL`
 
+### Templates Used
+- Website: https://github.com/puikinsh/gentelella
+- Presentation: https://github.com/impress/impress.js
