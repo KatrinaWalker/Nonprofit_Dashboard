@@ -502,50 +502,15 @@
             color: '#ffffff',
             hoverOpacity: 0.7,
             selectedColor: '#666666',
-            enableZoom: true,
+            enableZoom: false,
             showTooltip: true,
             values: sample_data,
             scaleColors: ['#E6F2F0', '#149B7E'],
             normalizeFunction: 'polynomial'
         });
-
-        // $('#world-map-gdp').vectorMap({
-        //     map: 'world_en',
-        //     backgroundColor: null,
-        //     color: '#ffffff',
-        //     hoverOpacity: 0.7,
-        //     selectedColor: '#666666',
-        //     enableZoom: true,
-        //     showTooltip: true,
-        //     values: sample_data,
-        //     scaleColors: ['#E6F2F0', '#149B7E'],
-        //     normalizeFunction: 'polynomial'
-        // });
       });
     </script>
     <!-- /JQVMap -->
-
-    <!-- Skycons -->
-    <script>
-      $(document).ready(function() {
-        var icons = new Skycons({
-            "color": "#73879C"
-          }),
-          list = [
-            "clear-day", "clear-night", "partly-cloudy-day",
-            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-            "fog"
-          ],
-          i;
-
-        for (i = list.length; i--;)
-          icons.set(list[i], list[i]);
-
-        icons.play();
-      });
-    </script>
-    <!-- /Skycons -->
-
     <!-- Doughnut Chart -->
     <script>
       $(document).ready(function(){
@@ -1339,19 +1304,19 @@
           type: 'funnel',
           width: '30%',
           data: [{
-            value: 60,
+            value: 55.95212,
             name: 'Contributions'
           }, {
-            value: 40,
+            value: 32.70889,
             name: 'Program Fees'
           }, {
-            value: 20,
+            value: 4.322424,
             name: 'Investments'
           }, {
-            value: 80,
+            value: 3.506982,
             name: 'Other'
           }, {
-            value: 100,
+            value: 3.47670,
             name: 'Fundraising'
           }]
         }]
@@ -1393,19 +1358,19 @@
           type: 'funnel',
           width: '30%',
           data: [{
-            value: 60,
+            value: 12.96132,
             name: 'Contributions'
           }, {
-            value: 40,
+            value: 80.61844,
             name: 'Program Fees'
           }, {
-            value: 20,
+            value: 3.795213,
             name: 'Investments'
           }, {
-            value: 80,
+            value: 2.98935,
             name: 'Other'
           }, {
-            value: 100,
+            value: 0.002878107,
             name: 'Fundraising'
           }]
         }]
@@ -1447,19 +1412,19 @@
           type: 'funnel',
           width: '30%',
           data: [{
-            value: 60,
+            value: 36.02774,
             name: 'Contributions'
           }, {
-            value: 40,
+            value: 56.9,
             name: 'Program Fees'
           }, {
-            value: 20,
+            value:  3.830661,
             name: 'Investments'
           }, {
-            value: 80,
+            value: 2.98935,
             name: 'Other'
           }, {
-            value: 100,
+            value:  0.2017035,
             name: 'Fundraising'
           }]
         }]
@@ -2332,7 +2297,7 @@
         legend: {
           x: 'center',
           y: 'bottom',
-          data: ['Human Services', 'Education', 'Other', 'Societal Benefit', 'Higher Education', 'Health']
+          data: ['Health','Human Services','', 'Education', 'Other', 'Societal Benefit','Higher Education', 'Hospitals']
         },
         // toolbox: {
         //   show: true,
@@ -2368,11 +2333,12 @@
             value: 95301752282,
             name: 'Education'
           }, {
-            value: 189708566934,
-            name: 'Higher Education'
-          }, {
             value: 274407550312,
             name: 'Health'
+          }, {
+            value: 189708566934,
+            name: 'Higher Education',
+            color: '#e01f54'
           }, {
             value: 176479382505,
             name: 'Other'
