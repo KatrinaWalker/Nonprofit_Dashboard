@@ -99,28 +99,36 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-         <h3>2013 Data Overview (not including private and public foundations)</h3>
+         <h3>2013 Data Overview</h3>
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total NPOs</span>
               <div class="count">334,512</div>
+              <span class="count_bottom"><i class="green">23% </i> of 501c(3) Sector</span>
+
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Total Rev</span>
-              <div class="count">1.61 billion</div>
+              <span class="count_top"><i class="fa fa-clock-o"></i> Total Revenue</span>
+              <div class="count">1.61 trillion</div>
+              <span class="count_bottom"><i class="green">90% </i> of 501c(3) Sector</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Expenses</span>
-              <div class="count">1.52 billion</div>
+              <div class="count">1.52 trillion</div>
+              <span class="count_bottom"><i class="green">94% </i> of 501c(3) Sector</span>
+
             </div>
              <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Assets</span>
-              <div class="count">2.95 billion</div>
+              <div class="count">2.95 trillion</div>
+              <span class="count_bottom"><i class="green">98% </i> of 501c(3) Sector</span>
+
             </div>
              <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Giving</span>
               <div class="count">335.17 billion</div>
+              <span class="count_bottom"><i class="green">94% </i> of 501c(3) Sector</span>
             </div>
           </div>
          
@@ -292,7 +300,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <div id="echart_bar_horizontal" style="height:370px;"></div>
+                    <div id="echart_bar_horizontal" style="height:370px; left:25px"></div>
                   </div>
                 </div>
               </div>
@@ -2256,7 +2264,7 @@
         },
         legend: {
           x: 100,
-          data: ['Fundraising Expenses', 'Net Income from Fundraising']
+          data: ['Fundraising Expenses', 'Fundraising Revenue']
         },
         // toolbox: {
         //   show: true,
@@ -2274,14 +2282,14 @@
         }],
         yAxis: [{
           type: 'category',
-          data: ['Health', 'Hospitals', 'Human Services', 'Education', 'Higher Education', 'Societal Benefit']
+          data: ['Health', 'Hospitals', 'Human Services', 'Education', 'Higher Ed', 'Societal Benefit']
         }],
         series: [{
           name: 'Fundraising Expenses',
           type: 'bar',
           data: [845721260, 96415394, 1097332809, 569979941, 86881891, 522225816]
         }, {
-          name: 'Net Income from Fundraising',
+          name: 'Fundraising Revenue',
           type: 'bar',
           data: [255648083, 7093100, 709091841, 375908413, -11462261, 105472171]
         }]
