@@ -1,0 +1,3 @@
+(on Bash)
+
+find *.csv -exec sed -i '1s/ein/EIN/' {} \;
