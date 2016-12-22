@@ -11,10 +11,9 @@ The ultimate goal is to provide information and estimate of total revenue that c
 
 ### Structure
 
-The core of the analysis is contained in these three files:
+The core of the analysis is contained in these two files:
 
-- ``
-- ``
+- `NPO_schema.sql`
 - `analysis.R`
 
 ### Implementation
