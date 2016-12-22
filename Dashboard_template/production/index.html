@@ -200,7 +200,8 @@
         <br />
           <div class="page-title">
             <div class="title_left">
-              <h3>Revenue Breakdown<small> </small></h3>
+              <h3>Total Revenue Breakdown<small> </small></h3>
+              <h2>Do revenue streams differ by size of NPO?</h2>
             </div>
             <div class="clearfix"></div>
              <div class="col-md-4 col-sm-4 col-xs-12">
@@ -245,14 +246,14 @@
           <div class="page-title">
             <div class="title_left">
               <h3>Assessing Profitability<small> </small></h3>
-              <h2>Remaining Revenue After Accounting for Expenses </h2>
+              <h2>Which type of NPO is more profitable?</h2>
             </div>
             <div class="clearfix"></div>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Small NPOs</h2>
+                    <h2>Total Revenue and Expenses by Type of NPO</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -360,13 +361,13 @@
       var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels: ['Health', 'Hospitals', 'Human Services', 'Education', 'Higher Education', 'Societal Benefit'],
           datasets: [{
-            label: '# of Votes',
+            label: 'Total Revenue',
             backgroundColor: "#26B99A",
             data: [51, 30, 40, 28, 92, 50, 45]
           }, {
-            label: '# of Votes',
+            label: 'Salary Expenses',
             backgroundColor: "#03586A",
             data: [41, 56, 25, 48, 72, 34, 12]
           }]
@@ -389,7 +390,7 @@
       // Radar chart
       var ctx = document.getElementById("canvasRadar");
       var data = {
-        labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+        labels: ["Health", "Hospitals", "Higher Education", "Education", "Societal Benefits", "Human Services"],
         datasets: [{
           label: "Revenue",
           backgroundColor: "rgba(3, 88, 106, 0.2)",
@@ -398,7 +399,7 @@
           pointBackgroundColor: "rgba(3, 88, 106, 0.80)",
           pointHoverBackgroundColor: "#fff",
           pointHoverBorderColor: "rgba(220,220,220,1)",
-          data: [65, 59, 90, 81, 56, 55, 40]
+          data: [268922370477, 638586864943, 179673957919, 86866705854, 69968312980, 189379495341, ]
         }, {
           label: "Expenses",
           backgroundColor: "rgba(38, 185, 154, 0.2)",
@@ -407,7 +408,7 @@
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(151,187,205,1)",
-          data: [28, 48, 40, 19, 96, 27, 100]
+          data: [274407550312, 676123367518, 189708566934, 95301752282, 80287674416, 193217963599]
         }]
       };
 
@@ -1327,31 +1328,31 @@
         //   }
         // },
         legend: {
-          data: ['Something #1', 'Something #2', 'Something #3', 'Something #4', 'Something #5'],
+          data: ['Contributions', 'Program Fees', 'Investments', 'Other', 'Fundraising'],
           orient: 'vertical',
           x: 'left',
           y: 'bottom'
         },
         calculable: true,
         series: [{
-          name: '漏斗图',
+          // name: '漏斗图',
           type: 'funnel',
-          width: '40%',
+          width: '30%',
           data: [{
             value: 60,
-            name: 'Item 1'
+            name: 'Contributions'
           }, {
             value: 40,
-            name: 'Something #2'
+            name: 'Program Fees'
           }, {
             value: 20,
-            name: 'Something #3'
+            name: 'Investments'
           }, {
             value: 80,
-            name: 'Something #4'
+            name: 'Other'
           }, {
             value: 100,
-            name: 'Something #5'
+            name: 'Fundraising'
           }]
         }]
       });
@@ -1381,31 +1382,31 @@
         //   }
         // },
         legend: {
-          data: ['Something #1', 'Something #2', 'Something #3', 'Something #4', 'Something #5'],
+          data: ['Contributions', 'Program Fees', 'Investments', 'Other', 'Fundraising'],
           orient: 'vertical',
           x: 'left',
           y: 'bottom'
         },
         calculable: true,
         series: [{
-          name: '漏斗图',
+          // name: '漏斗图',
           type: 'funnel',
-          width: '40%',
+          width: '30%',
           data: [{
             value: 60,
-            name: 'Item 1'
+            name: 'Contributions'
           }, {
             value: 40,
-            name: 'Something #2'
+            name: 'Program Fees'
           }, {
             value: 20,
-            name: 'Something #3'
+            name: 'Investments'
           }, {
             value: 80,
-            name: 'Something #4'
+            name: 'Other'
           }, {
             value: 100,
-            name: 'Something #5'
+            name: 'Fundraising'
           }]
         }]
       });
@@ -1435,31 +1436,31 @@
         //   }
         // },
         legend: {
-          data: ['Something #1', 'Something #2', 'Something #3', 'Something #4', 'Something #5'],
+          data: ['Contributions', 'Program Fees', 'Investments', 'Other', 'Fundraising'],
           orient: 'vertical',
           x: 'left',
           y: 'bottom'
         },
         calculable: true,
         series: [{
-          name: '漏斗图',
+          // name: '漏斗图',
           type: 'funnel',
-          width: '40%',
+          width: '30%',
           data: [{
             value: 60,
-            name: 'Item 1'
+            name: 'Contributions'
           }, {
             value: 40,
-            name: 'Something #2'
+            name: 'Program Fees'
           }, {
             value: 20,
-            name: 'Something #3'
+            name: 'Investments'
           }, {
             value: 80,
-            name: 'Something #4'
+            name: 'Other'
           }, {
             value: 100,
-            name: 'Something #5'
+            name: 'Fundraising'
           }]
         }]
       });
@@ -2283,14 +2284,14 @@
       echartBar.setOption({
         title: {
           text: 'Bar Graph',
-          subtext: 'Graph subtitle'
+          // subtext: 'Graph subtitle'
         },
         tooltip: {
           trigger: 'axis'
         },
         legend: {
           x: 100,
-          data: ['2015', '2016']
+          data: ['Fundraising Expenses', 'Net Income from Fundraising']
         },
         // toolbox: {
         //   show: true,
@@ -2308,16 +2309,16 @@
         }],
         yAxis: [{
           type: 'category',
-          data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+          data: ['Health', 'Hospitals', 'Human Services', 'Education', 'Higher Education', 'Societal Benefit']
         }],
         series: [{
-          name: '2015',
+          name: 'Fundraising Expenses',
           type: 'bar',
-          data: [18203, 23489, 29034, 104970, 131744, 630230]
+          data: [845721260, 96415394, 1097332809, 569979941, 86881891, 522225816]
         }, {
-          name: '2016',
+          name: 'Net Income from Fundraising',
           type: 'bar',
-          data: [19325, 23438, 31000, 121594, 134141, 681807]
+          data: [255648083, 7093100, 709091841, 375908413, -11462261, 105472171]
         }]
       });
 
@@ -2361,8 +2362,8 @@
           max: 40,
           sort: 'ascending',
           data: [{
-            value: 274407550312,
-            name: 'Health'
+            value: 193217963599,
+            name: 'Human Services'
           }, {
             value: 95301752282,
             name: 'Education'
@@ -2370,10 +2371,10 @@
             value: 189708566934,
             name: 'Higher Education'
           }, {
-            value: 19321796359,
-            name: 'Societal Benefit'
+            value: 274407550312,
+            name: 'Health'
           }, {
-            value: 20,
+            value: 176479382505,
             name: 'Other'
           }, {
             value: 676123367518,
@@ -2475,7 +2476,7 @@
           legend: {
             x: 'center',
             y: 'bottom',
-            data: ['Human Services', 'Education', 'Higher Education', 'Societal Benefits', 'Other']
+            data: ['Human Services', 'Education', 'Health', 'Societal Benefits', 'Other']
           },
           // toolbox: {
           //   show: true,
@@ -2552,7 +2553,7 @@
               name: 'Health'
             }, {
               value: 38140,
-              name: 'Societal Benefit'
+              name: 'Societal Benefits'
             }, {
               value: 91183,
               name: 'Other'
@@ -2561,104 +2562,104 @@
       makeMyPieChart('echart_pie', randomData)      
 
 
-      var echartMiniPie = echarts.init(document.getElementById('echart_mini_pie'), theme);
+      // var echartMiniPie = echarts.init(document.getElementById('echart_mini_pie'), theme);
 
-      echartMiniPie .setOption({
-        title: {
-          text: 'Chart #2',
-          subtext: 'From ExcelHome',
-          sublink: 'http://e.weibo.com/1341556070/AhQXtjbqh',
-          x: 'center',
-          y: 'center',
-          itemGap: 20,
-          textStyle: {
-            color: 'rgba(30,144,255,0.8)',
-            fontFamily: '微软雅黑',
-            fontSize: 35,
-            fontWeight: 'bolder'
-          }
-        },
-        tooltip: {
-          show: true,
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        legend: {
-          orient: 'vertical',
-          x: 170,
-          y: 45,
-          itemGap: 12,
-          data: ['68%Something #1', '29%Something #2', '3%Something #3'],
-        },
-        toolbox: {
-          show: true,
-          feature: {
-            mark: {
-              show: true
-            },
-            dataView: {
-              show: true,
-              title: "Text View",
-              lang: [
-                "Text View",
-                "Close",
-                "Refresh",
-              ],
-              readOnly: false
-            },
-            restore: {
-              show: true,
-              title: "Restore"
-            },
-            saveAsImage: {
-              show: true,
-              title: "Save Image"
-            }
-          }
-        },
-        series: [{
-          name: '1',
-          type: 'pie',
-          clockWise: false,
-          radius: [105, 130],
-          itemStyle: dataStyle,
-          data: [{
-            value: 68,
-            name: '68%Something #1'
-          }, {
-            value: 32,
-            name: 'invisible',
-            itemStyle: placeHolderStyle
-          }]
-        }, {
-          name: '2',
-          type: 'pie',
-          clockWise: false,
-          radius: [80, 105],
-          itemStyle: dataStyle,
-          data: [{
-            value: 29,
-            name: '29%Something #2'
-          }, {
-            value: 71,
-            name: 'invisible',
-            itemStyle: placeHolderStyle
-          }]
-        }, {
-          name: '3',
-          type: 'pie',
-          clockWise: false,
-          radius: [25, 80],
-          itemStyle: dataStyle,
-          data: [{
-            value: 3,
-            name: '3%Something #3'
-          }, {
-            value: 97,
-            name: 'invisible',
-            itemStyle: placeHolderStyle
-          }]
-        }]
-      });
+      // echartMiniPie .setOption({
+      //   title: {
+      //     text: 'Chart #2',
+      //     subtext: 'From ExcelHome',
+      //     sublink: 'http://e.weibo.com/1341556070/AhQXtjbqh',
+      //     x: 'center',
+      //     y: 'center',
+      //     itemGap: 20,
+      //     textStyle: {
+      //       color: 'rgba(30,144,255,0.8)',
+      //       fontFamily: '微软雅黑',
+      //       fontSize: 35,
+      //       fontWeight: 'bolder'
+      //     }
+      //   },
+      //   tooltip: {
+      //     show: true,
+      //     formatter: "{a} <br/>{b} : {c} ({d}%)"
+      //   },
+      //   legend: {
+      //     orient: 'vertical',
+      //     x: 170,
+      //     y: 45,
+      //     itemGap: 12,
+      //     data: ['68%Something #1', '29%Something #2', '3%Something #3'],
+      //   },
+      //   toolbox: {
+      //     show: true,
+      //     feature: {
+      //       mark: {
+      //         show: true
+      //       },
+      //       dataView: {
+      //         show: true,
+      //         title: "Text View",
+      //         lang: [
+      //           "Text View",
+      //           "Close",
+      //           "Refresh",
+      //         ],
+      //         readOnly: false
+      //       },
+      //       restore: {
+      //         show: true,
+      //         title: "Restore"
+      //       },
+      //       saveAsImage: {
+      //         show: true,
+      //         title: "Save Image"
+      //       }
+      //     }
+      //   },
+      //   series: [{
+      //     name: '1',
+      //     type: 'pie',
+      //     clockWise: false,
+      //     radius: [105, 130],
+      //     itemStyle: dataStyle,
+      //     data: [{
+      //       value: 68,
+      //       name: '68%Something #1'
+      //     }, {
+      //       value: 32,
+      //       name: 'invisible',
+      //       itemStyle: placeHolderStyle
+      //     }]
+      //   }, {
+      //     name: '2',
+      //     type: 'pie',
+      //     clockWise: false,
+      //     radius: [80, 105],
+      //     itemStyle: dataStyle,
+      //     data: [{
+      //       value: 29,
+      //       name: '29%Something #2'
+      //     }, {
+      //       value: 71,
+      //       name: 'invisible',
+      //       itemStyle: placeHolderStyle
+      //     }]
+      //   }, {
+      //     name: '3',
+      //     type: 'pie',
+      //     clockWise: false,
+      //     radius: [25, 80],
+      //     itemStyle: dataStyle,
+      //     data: [{
+      //       value: 3,
+      //       name: '3%Something #3'
+      //     }, {
+      //       value: 97,
+      //       name: 'invisible',
+      //       itemStyle: placeHolderStyle
+      //     }]
+      //   }]
+      // });
 
       // var echartMap = echarts.init(document.getElementById('echart_world_map'), theme);
       
