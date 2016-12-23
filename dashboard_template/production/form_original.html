@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>US Nonprofit Sector| 501c(3)</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+        <!-- Custom Theme Style -->
+    <link href="../build/css/custom.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container" style="min-height: 1100px;">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br/>
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu" padding-right="0px">
+                  <li style= "font-size: 16px"><a href="index.html"><i class="fa fa-home"></i> Sector Overview <span></span></a>
+                  </li>
+                </ul> 
+              </div>
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li style= "font-size: 16px"><a href="form.html"><i class="fa fa-bug"></i> NPO "Insight" <span></span></a>
+                  </li>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <ul class="nav navbar-nav navbar-left">
+                <li class="">
+                    <h1 style="color: rgb(155, 89, 182);padding-left: 0.8%">US Non-Profit Sector | 501c(3)</h1>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>(Kinda-Not-Really) Predictive Analytics <small>kinda</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+              <!--       <br /> -->
+              
+
+
+              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Small NPOs</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form action="/predicts" method = "POST" class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Projected Significant Contributions</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input name = "s_v1" type="text" class="form-control" placeholder="Default Input">
+                        </div>
+                        </div>
+                      </div>
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Projected Contributions in Grants</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input name = "s_v2" type="text" class="form-control" placeholder="Default Input">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                         <button type="submit" class="btn btn-warning">Compute</button>
+                         <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea"><h4 style="color:#1abb9c">Expected Revenue</h4><span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <h5 style="font-size: 27px;margin-top: 5%;">{{pred_small}}</h5>
+                        </div>
+                      </div>
+                        </div>
+                      </div>
+                      </form>
+                
+
+
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                  <div class="x_title">
+                    <h2>Medium-Sized NPOs</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form action="/predictm" method = "POST" class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Projected Functional Expenses</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input name = "m_v1" type="text" class="form-control" placeholder="Default Input">
+                        </div>
+                      </div>
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                         <button type="submit" class="btn btn-warning">Compute</button>
+                         <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea"><h4 style="color:#1abb9c">Expected Revenue</h4><span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <h5 style="font-size: 27px;margin-top: 5%;">{{pred_med}}</h5>
+                        </div>
+                      </div>
+                        </div>
+                      </div>
+                      </form>
+
+
+              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                <div class="x_title">
+                  <h2>Large-Sized NPOs</h2>
+                  <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form action = "/predictl" method = "POST" class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Projected Functional Expenses</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input name = "l_v1" type="text" class="form-control" placeholder="Default Input">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                         <button type="submit" class="btn btn-warning">Compute</button>
+                         <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea"><h4 style="color:#1abb9c">Expected Revenue</h4><span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                         <h5 style="font-size: 27px;margin-top: 5%;">{{pred_large}}</h5>
+                      </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
+    <!-- jQuery Tags Input -->
+    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- Switchery -->
+    <script src="../vendors/switchery/dist/switchery.min.js"></script>
+    <!-- Select2 -->
+    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- Parsley -->
+    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="../vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
+    <script src="../vendors/starrr/dist/starrr.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+
+    <!-- bootstrap-wysiwyg -->
+    <script>
+      $(document).ready(function() {
+        function initToolbarBootstrapBindings() {
+          var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+              'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+              'Times New Roman', 'Verdana'
+            ],
+            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+          $.each(fonts, function(idx, fontName) {
+            fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
+          });
+          $('a[title]').tooltip({
+            container: 'body'
+          });
+          $('.dropdown-menu input').click(function() {
+              return false;
+            })
+            .change(function() {
+              $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
+            })
+            .keydown('esc', function() {
+              this.value = '';
+              $(this).change();
+            });
+
+          $('[data-role=magic-overlay]').each(function() {
+            var overlay = $(this),
+              target = $(overlay.data('target'));
+            overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+          });
+
+          if ("onwebkitspeechchange" in document.createElement("input")) {
+            var editorOffset = $('#editor').offset();
+
+            $('.voiceBtn').css('position', 'absolute').offset({
+              top: editorOffset.top,
+              left: editorOffset.left + $('#editor').innerWidth() - 35
+            });
+          } else {
+            $('.voiceBtn').hide();
+          }
+        }
+
+        function showErrorAlert(reason, detail) {
+          var msg = '';
+          if (reason === 'unsupported-file-type') {
+            msg = "Unsupported format " + detail;
+          } else {
+            console.log("error uploading file", reason, detail);
+          }
+          $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+            '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
+        }
+
+        initToolbarBootstrapBindings();
+
+        $('#editor').wysiwyg({
+          fileUploadError: showErrorAlert
+        });
+
+        window.prettyPrint;
+        prettyPrint();
+      });
+    </script>
+    <!-- /bootstrap-wysiwyg -->
+
+    <!-- Select2 -->
+    <script>
+      $(document).ready(function() {
+        $(".select2_single").select2({
+          placeholder: "Select a state",
+          allowClear: true
+        });
+        $(".select2_group").select2({});
+        $(".select2_multiple").select2({
+          maximumSelectionLength: 4,
+          placeholder: "With Max Selection limit 4",
+          allowClear: true
+        });
+      });
+    </script>
+    <!-- /Select2 -->
+  </body>
+</html>

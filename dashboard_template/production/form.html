@@ -10,28 +10,28 @@
     <title>US Nonprofit Sector| 501c(3)</title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="static/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
-    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <link href="static/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
     <!-- Select2 -->
-    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="static/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
     <!-- Switchery -->
-    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <link href="static/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- starrr -->
-    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <link href="static/vendors/starrr/dist/starrr.css" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="static/build/css/custom.min.css" rel="stylesheet">
         <!-- Custom Theme Style -->
-    <link href="../build/css/custom.css" rel="stylesheet">
+    <link href="static/build/css/custom.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -53,7 +53,7 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu" padding-right="0px">
-                  <li style= "font-size: 16px"><a href="index.html"><i class="fa fa-home"></i> Sector Overview <span></span></a>
+                  <li style= "font-size: 16px"><a href="/"><i class="fa fa-home"></i> Sector Overview <span></span></a>
                   </li>
                 </ul> 
               </div>
@@ -94,140 +94,94 @@
                   </div>
                   <div class="x_content">
               <!--       <br /> -->
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Small NPOs</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form class="form-horizontal form-label-left">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Projected Significant Contributions</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Default Input">
-                        </div>
-                        </div>
-                      </div>
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Projected Contributions in Grants</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Default Input">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                         <button type="button" class="btn btn-warning">Compute</button>
-                         <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea"><h4 style="color:#1abb9c">Expected Revenue</h4><span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <h5 style="font-size: 27px;margin-top: 5%;">Placeholder Value</h5>
-                        </div>
-                      </div>
-                        </div>
-                      </div>
+              
 
-                  <div class="x_title">
-                    <h2>Medium-Sized NPOs</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form class="form-horizontal form-label-left">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Projected Functional Expenses</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Default Input">
-                        </div>
-                      </div>
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                         <button type="button" class="btn btn-warning">Compute</button>
-                         <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea"><h4 style="color:#1abb9c">Expected Revenue</h4><span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <h5 style="font-size: 27px;margin-top: 5%;">Placeholder Value</h5>
-                        </div>
-                      </div>
-                        </div>
-                      </div>
+            <!-- <div class="x_title"> -->
+             <h2>Small-Sized NPOs</h2>
+              <form action="/predicts" method="POST">
+              Projected Significant Contributions:<br>
+                <input name="s_v1" type="text"/><br>
+                Projected Contributions in Grants:<br>
+                <input name="s_v2" type="text"/>
+                <br/>
+                <input type="submit"/>
+              </form>
+              <br/>
+             <h2>The predicted revenue is {{pred_small}}</h2>
+             <br/>
 
-                <div class="x_title">
-                  <h2>Large-Sized NPOs</h2>
-                  <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form class="form-horizontal form-label-left">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Projected Functional Expenses</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Default Input">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                         <button type="button" class="btn btn-warning">Compute</button>
-                         <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea"><h4 style="color:#1abb9c">Expected Revenue</h4><span class="required"></span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                         <h5 style="font-size: 27px;margin-top: 5%;">Placeholder Value</h5>
-                      </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+             <!-- <div class="x_title"> -->
+             <h2>Medium-Sized NPOs</h2>
+              <form action="/predictm" method="POST">
+              Projected Functional Expenses:<br>
+                <input name="m_v1" type="text"/><br>
+                <br/>
+                <input type="submit"/>
+              </form>
+              <br/>
+             <h2>The predicted revenue is {{pred_med}}</h2>
+             <br/>
+
+             <!-- <div class="x_title"> -->
+             <h2>Large-Sized NPOs</h2><!-- </div> -->
+              <form action="/predictl" method="POST">
+              Projected Functional Expenses:<br>
+                <input name="l_v1" type="text"/><br>
+                <br/>
+                <input type="submit"/>
+              </form>
+              <br/>
+             <h2>The predicted revenue is {{pred_large}}</h2>
+
+
+
+
+
+                                  </div>
                 </div>
               </div>
       </div>
     </div>
 
     <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="static/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- <script src="static/vendors/fastclick/lib/fastclick.js"></script> -->
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="static/vendors/nprogress/nprogress.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <script src="static/vendors/iCheck/icheck.min.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="static/vendors/moment/min/moment.min.js"></script>
+    <script src="static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap-wysiwyg -->
-    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
+    <script src="static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="static/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="static/vendors/google-code-prettify/src/prettify.js"></script>
     <!-- jQuery Tags Input -->
-    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <script src="static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
     <!-- Switchery -->
-    <script src="../vendors/switchery/dist/switchery.min.js"></script>
+    <script src="static/vendors/switchery/dist/switchery.min.js"></script>
     <!-- Select2 -->
-    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <script src="static/vendors/select2/dist/js/select2.full.min.js"></script>
     <!-- Parsley -->
-    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <script src="static/vendors/parsleyjs/dist/parsley.min.js"></script>
     <!-- Autosize -->
-    <script src="../vendors/autosize/dist/autosize.min.js"></script>
+    <script src="static/vendors/autosize/dist/autosize.min.js"></script>
     <!-- jQuery autocomplete -->
-    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <script src="static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
-    <script src="../vendors/starrr/dist/starrr.js"></script>
+    <script src="static/vendors/starrr/dist/starrr.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="static/build/js/custom.min.js"></script>
 
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- <script src="static/vendors/fastclick/lib/fastclick.js"></script> -->
 
     <!-- bootstrap-wysiwyg -->
     <script>
